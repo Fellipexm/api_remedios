@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Use a variável de ambiente do Heroku ou a porta 3000 por padrão
+const PORT = process.env.PORT || 3000;
 
 const nomeArquivo = 'lista-de-medicamentos-similares-intercambiaveis.json';
 
@@ -13,8 +13,7 @@ app.get('/api/data', (req, res) => {
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
       console.error(`Erro ao ler o arquivo: ${err}`);
-      res.status(500).json({ error: 'Erro ao ler o arquivo' });
-      return;
+      return res.status(500).json({ error: 'Erro ao ler o arquivo' });
     }
 
     try {
