@@ -18,7 +18,7 @@ app.get('/api/data', (req, res) => {
 
     try {
       const jsonData = JSON.parse(data);
-      // Assuming that your data is an array, you can filter out the undesired sentence
+      
       const filteredData = jsonData.filter(item => item.Column1 !== "Lista de Medicamentos Similares e seus respectivos medicamentos de referência, conforme RDC 58/2014 Atualizada até 11/05/2020, conforme o Diário Oficial da União. Lista de Medicamentos Similares classificada por ordem alfabética do medicamento de referência");
       res.json(filteredData);
     } catch (jsonError) {
